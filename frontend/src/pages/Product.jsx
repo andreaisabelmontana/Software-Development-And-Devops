@@ -3,7 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 import { getProduct } from '../lib/api.js';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/theme.js';
-import ProductGlyph from '../components/ProductGlyph.jsx';
+import { categoryConfig } from '../lib/categories.js';
+import StarRating from '../components/StarRating.jsx';
 
 export default function Product({ onOpenCart }) {
   const { id } = useParams();
@@ -41,16 +42,26 @@ export default function Product({ onOpenCart }) {
   }
 
   const inStock = (product.stock ?? 1) > 0;
+  const cfg = categoryConfig(product.category);
 
   return (
     <div className="container product-detail">
-      <div className="visual"><ProductGlyph product={product} /></div>
+      <div className="visual">
+        {product.image
+          ? <img src={product.image} alt={product.name} />
+          : <div className="skeleton" style={{ width: '70%', height: '70%' }} />}
+      </div>
       <div>
         <Link to="/" className="muted" style={{ fontSize: '0.85rem' }}>← Back to catalog</Link>
         <h1 style={{ marginTop: '0.5rem' }}>{product.name}</h1>
-        <span className="badge badge-soft">{product.category}</span>
+        <span style={{ color: cfg.color, fontWeight: 700, fontSize: '0.9rem' }}>
+          {cfg.icon} {product.category}
+        </span>
+        <div className="rating-big">
+          <StarRating rating={product.rating} size={18} />
+        </div>
         <div className="price-big">{money(product.price)}</div>
-        <p>{product.description}</p>
+        <p style={{ color: 'var(--fg-muted)', lineHeight: 1.6 }}>{product.description}</p>
         <p className="muted" style={{ fontSize: '0.9rem' }}>
           {inStock ? `In stock · ${product.stock} available` : 'Currently out of stock'}
         </p>

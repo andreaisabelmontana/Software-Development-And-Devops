@@ -1,10 +1,21 @@
+import Logo from './Logo.jsx';
+
 export default function Footer() {
   return (
     <footer className="site-footer">
+      <div className="accent-stripe" aria-hidden="true" />
       <div className="container inner">
         <div>
-          <h4>The Shop</h4>
-          <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '38ch', margin: 0 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.75rem', color: 'var(--brand)' }}>
+            <span style={{
+              width: 36, height: 36, borderRadius: 999,
+              border: '2px solid var(--brand)', display: 'grid', placeItems: 'center',
+            }}>
+              <Logo size={22} />
+            </span>
+            <strong style={{ fontWeight: 900, fontSize: '1.05rem', letterSpacing: '-0.01em' }}>THE SHOP</strong>
+          </div>
+          <p style={{ color: 'var(--fg-muted)', maxWidth: '42ch', margin: 0, fontSize: '0.92rem' }}>
             A cloud-native marketplace built by the BCSAI Software Development &amp; DevOps team
             at IE School of Science &amp; Technology, Madrid.
           </p>

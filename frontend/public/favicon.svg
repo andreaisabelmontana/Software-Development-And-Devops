@@ -1,14 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%"  stop-color="#5B5FE6"/>
-      <stop offset="55%" stop-color="#7C3AED"/>
-      <stop offset="100%" stop-color="#9333EA"/>
-    </linearGradient>
-  </defs>
-  <rect width="32" height="32" rx="7" fill="url(#g)"/>
-  <path d="M9 12 L9 23 L23 23 L23 12 Z" fill="none" stroke="#ffffff" stroke-width="2"/>
-  <path d="M11 12 L13 8 L19 8 L21 12" fill="none" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="13" cy="17" r="1.2" fill="#ffffff"/>
-  <circle cx="19" cy="17" r="1.2" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- white circle background with green border -->
+  <circle cx="32" cy="32" r="29" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3.5"/>
+
+  <!-- shopping cart, all in #4CAF50 -->
+  <g fill="none" stroke="#4CAF50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <!-- handle -->
+    <path d="M14 18 L20 18 L24 42 L48 42"/>
+    <!-- basket -->
+    <path d="M22 24 L51 24 L47 38 L26 38 Z"/>
+    <!-- vertical dividers in the basket -->
+    <path d="M29 24 L29 38 M37 24 L37 38 M44 24 L44 38"/>
+    <!-- horizontal divider -->
+    <path d="M24 31 L48 31"/>
+  </g>
+  <!-- wheels -->
+  <circle cx="29" cy="49" r="3.5" fill="#4CAF50"/>
+  <circle cx="44" cy="49" r="3.5" fill="#4CAF50"/>
 </svg>

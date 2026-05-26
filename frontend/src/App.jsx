@@ -13,20 +13,13 @@ import OrderConfirmation from './pages/OrderConfirmation.jsx';
 import Orders            from './pages/Orders.jsx';
 import About             from './pages/About.jsx';
 
-import { getInitialTheme, applyTheme } from './lib/theme.js';
-
-// Apply theme before first paint
-const initialTheme = getInitialTheme();
-applyTheme(initialTheme);
-
 export default function App() {
   const [cartOpen, setCartOpen] = useState(false);
-  const [theme,    setTheme]    = useState(initialTheme);
   const openCart = () => setCartOpen(true);
 
   return (
     <>
-      <Header onOpenCart={openCart} theme={theme} setTheme={setTheme} />
+      <Header onOpenCart={openCart} />
       <main>
         <Routes>
           <Route path="/"             element={<Home     onOpenCart={openCart} />} />

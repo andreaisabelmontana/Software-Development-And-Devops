@@ -1,92 +1,98 @@
 /* ============================================================
    The Shop — Design System
-   Palette sampled directly from the team's original UI screenshot
-   (img-001.jpg embedded in docs/SDG_Report_Slides.pdf).
-
-   Sampled gradient swatches: #5E64D0 → #6157BB → #654BA9
-   Page background:           #F3F3F3
-   Cards:                     #FFFFFF
+   Palette pulled from the team's actual report deck:
+     - Brand green   #4CAF50  (logo cart + "THE SHOP" wordmark)
+     - 5-color accent stripe from the report TOC, used UNIFORMLY:
+         teal     #00BCD4   →  Cloud / Electronics
+         yellow   #FFC107   →  Progress / Jewelry / star ratings
+         pink     #EC407A   →  Architecture / Men's Clothing
+         green    #4CAF50   →  The Shop (brand) / primary CTAs
+         purple   #AB47BC   →  Design / Women's Clothing
+       (orange #FF9800 and red #E53935 also used in the deck — reserved
+        for warnings/errors so nothing is "random".)
+   Page background: pure white. Body text: near-black.
    ============================================================ */
 
 :root {
-  /* Brand — indigo / violet ramp pulled from the screenshot. */
-  --brand-indigo:        #5B5FE6;   /* primary fill (buttons, prices, active) */
-  --brand-indigo-strong: #4B4FCC;   /* hover                                  */
-  --brand-indigo-soft:   #8B91F0;   /* light variants                         */
-  --brand-violet:        #7C3AED;   /* gradient mid                           */
-  --brand-purple:        #9333EA;   /* gradient end                           */
-  --brand-purple-deep:   #6D28D9;   /* deep purple accent                     */
+  /* Brand ---------------------------------------------------- */
+  --brand:           #4CAF50;       /* primary green */
+  --brand-strong:    #3E8E41;       /* hover           */
+  --brand-soft:      #C8E6C9;       /* tint            */
+  --brand-darker:    #2E7D32;
 
-  /* Neutrals — cool gray ramp matching the original page chrome. */
-  --gray-50:   #F9FAFB;
-  --gray-100:  #F3F4F6;
-  --gray-200:  #E5E7EB;
-  --gray-300:  #D1D5DB;
-  --gray-400:  #9CA3AF;
-  --gray-500:  #6B7280;
-  --gray-600:  #4B5563;
-  --gray-700:  #374151;
-  --gray-800:  #1F2937;
-  --gray-900:  #111827;
+  /* Category / section accents — 1:1 with the report TOC */
+  --c-teal:          #00BCD4;
+  --c-yellow:        #FFC107;
+  --c-pink:          #EC407A;
+  --c-green:         #4CAF50;
+  --c-purple:        #AB47BC;
+  --c-orange:        #FF9800;       /* warnings / Feedback section */
+  --c-red:           #E53935;       /* danger / Conclusion section */
 
-  /* Status (kept; original screenshot didn't show these so common values used). */
-  --success:   #10B981;
-  --warn:      #F59E0B;
-  --star:      #FBBF24;
-  --danger:    #EF4444;
+  /* Neutrals (cool gray for chrome on a white canvas) */
+  --gray-50:   #FAFAFA;
+  --gray-100:  #F5F5F5;
+  --gray-200:  #EEEEEE;
+  --gray-300:  #E0E0E0;
+  --gray-400:  #BDBDBD;
+  --gray-500:  #9E9E9E;
+  --gray-600:  #757575;
+  --gray-700:  #616161;
+  --gray-800:  #424242;
+  --gray-900:  #212121;
+
+  /* Status */
+  --success:   var(--c-green);
+  --warn:      var(--c-orange);
+  --danger:    var(--c-red);
+  --star:      var(--c-yellow);
 
   /* Semantic tokens */
-  --bg:            var(--gray-100);
+  --bg:            #FFFFFF;
   --bg-elevated:   #FFFFFF;
+  --bg-soft:       var(--gray-50);
   --bg-inverse:    var(--gray-900);
   --fg:            var(--gray-900);
-  --fg-muted:      var(--gray-500);
+  --fg-muted:      var(--gray-600);
   --fg-inverse:    #FFFFFF;
   --border:        var(--gray-200);
   --border-strong: var(--gray-300);
 
-  --accent:        var(--brand-indigo);
-  --accent-strong: var(--brand-indigo-strong);
+  --accent:        var(--brand);
+  --accent-strong: var(--brand-strong);
 
-  /* The hero / header gradient — taken from the original site. */
-  --grad-hero: linear-gradient(95deg, var(--brand-indigo) 0%, var(--brand-violet) 55%, var(--brand-purple) 100%);
-
-  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.05);
-  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.08), 0 2px 6px rgba(17, 24, 39, 0.04);
-  --shadow-lg: 0 24px 60px rgba(17, 24, 39, 0.15);
-  --shadow-brand: 0 12px 30px rgba(91, 95, 230, 0.35);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.12);
+  --shadow-brand: 0 8px 22px rgba(76, 175, 80, 0.32);
 
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 22px;
   --radius-pill: 999px;
 
-  /* Sans-only stack — original UI uses no serif anywhere. */
   --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-display: var(--font-sans);
   --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-  --container: 1180px;
+  --container: 1200px;
 
-  color-scheme: light dark;
+  color-scheme: light;
 }
 
+/* The OG site doesn't have a dark mode. Honor prefers-color-scheme but
+   keep the rest of the design unchanged so we don't drift from the deck. */
 [data-theme='dark'] {
-  --bg:            #0F1024;
-  --bg-elevated:   #181A36;
-  --bg-inverse:    #FFFFFF;
-  --fg:            #F3F4F6;
-  --fg-muted:      #9CA3AF;
-  --fg-inverse:    var(--gray-900);
-  --border:        #2A2D55;
-  --border-strong: #3B3E70;
-  --shadow-sm:     0 1px 2px rgba(0,0,0,0.4);
-  --shadow-md:     0 8px 24px rgba(0,0,0,0.45);
-  --shadow-lg:     0 24px 60px rgba(0,0,0,0.55);
+  --bg:            #121212;
+  --bg-elevated:   #1E1E1E;
+  --bg-soft:       #1A1A1A;
+  --fg:            #F5F5F5;
+  --fg-muted:      #9E9E9E;
+  --border:        #2A2A2A;
+  --border-strong: #3A3A3A;
 }
 
 * { box-sizing: border-box; }
-
 html, body, #root { height: 100%; }
 
 body {
@@ -104,9 +110,9 @@ a {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 120ms ease, color 120ms ease;
+  transition: color 120ms ease, border-color 120ms ease;
 }
-a:hover { color: var(--brand-indigo); }
+a:hover { color: var(--brand); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -115,9 +121,9 @@ h1, h2, h3, h4 {
   margin: 0 0 0.5em 0;
   color: var(--fg);
 }
-h1 { font-size: clamp(2rem, 4vw + 1rem, 3.5rem); line-height: 1.06; }
-h2 { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); line-height: 1.15; }
-h3 { font-size: 1.15rem; font-weight: 600; }
+h1 { font-size: clamp(1.8rem, 3vw + 1rem, 2.8rem); line-height: 1.1; }
+h2 { font-size: clamp(1.35rem, 1.5vw + 1rem, 1.9rem); line-height: 1.2; }
+h3 { font-size: 1.1rem; font-weight: 600; }
 
 p { margin: 0 0 1em 0; }
 
@@ -134,49 +140,34 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
   border: 1px solid transparent;
   font-weight: 600;
   letter-spacing: 0;
-  transition: transform 80ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+  transition: transform 80ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease, color 120ms ease;
   white-space: nowrap;
   font-size: 0.95rem;
 }
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--brand-indigo);
+  background: var(--brand);
   color: #fff;
-  border-color: var(--brand-indigo);
+  border-color: var(--brand);
   box-shadow: var(--shadow-sm);
 }
-.btn-primary:hover { background: var(--brand-indigo-strong); border-color: var(--brand-indigo-strong); color: #fff; }
-.btn-primary:disabled { background: var(--brand-indigo-soft); border-color: var(--brand-indigo-soft); cursor: not-allowed; }
+.btn-primary:hover { background: var(--brand-strong); border-color: var(--brand-strong); color: #fff; }
+.btn-primary:disabled { background: var(--brand-soft); border-color: var(--brand-soft); color: var(--gray-600); cursor: not-allowed; }
 
 .btn-secondary {
-  background: var(--bg-elevated);
+  background: #fff;
   color: var(--fg);
-  border-color: var(--border);
+  border-color: var(--border-strong);
 }
-.btn-secondary:hover { border-color: var(--brand-indigo); color: var(--brand-indigo); }
+.btn-secondary:hover { border-color: var(--brand); color: var(--brand); }
 
 .btn-ghost {
   background: transparent;
   color: var(--fg);
   border-color: transparent;
 }
-.btn-ghost:hover { background: rgba(91,95,230,0.08); color: var(--brand-indigo); }
-
-.btn-dark {
-  background: var(--gray-900);
-  color: #fff;
-  border-color: var(--gray-900);
-}
-.btn-dark:hover { background: var(--gray-800); border-color: var(--gray-800); color: #fff; }
-
-.btn-gradient {
-  background: var(--grad-hero);
-  color: #fff;
-  border-color: transparent;
-  box-shadow: var(--shadow-brand);
-}
-.btn-gradient:hover { filter: brightness(1.05); color: #fff; }
+.btn-ghost:hover { background: var(--gray-100); color: var(--brand); }
 
 /* -------- Layout primitives -------- */
 .container {
@@ -192,30 +183,23 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 
 .badge {
   display: inline-block;
-  padding: 0.3em 0.85em;
+  padding: 0.28em 0.85em;
   border-radius: var(--radius-pill);
   font-size: 0.72rem;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: var(--brand-indigo);
+  background: var(--brand);
   color: #fff;
 }
-.badge-accent { background: var(--grad-hero); color: #fff; }
-.badge-soft   { background: var(--gray-100); color: var(--brand-indigo); border: 1px solid var(--border); }
+.badge-soft { background: var(--brand-soft); color: var(--brand-darker); }
 
 /* -------- Forms -------- */
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
+.field { display: flex; flex-direction: column; gap: 0.35rem; }
 .field label {
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--fg-muted);
-  letter-spacing: 0;
-  text-transform: none;
 }
 .field input,
 .field select,
@@ -224,8 +208,8 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
   font-size: 0.98rem;
   padding: 0.7em 0.95em;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  background: #fff;
   color: var(--fg);
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
@@ -233,13 +217,13 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--brand-indigo);
-  box-shadow: 0 0 0 3px rgba(91,95,230,0.18);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(76,175,80,0.18);
 }
 
 /* -------- Card -------- */
 .card {
-  background: var(--bg-elevated);
+  background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -251,7 +235,7 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 .mono { font-family: var(--font-mono); }
 
 .skeleton {
-  background: linear-gradient(90deg, var(--border) 0%, var(--bg-elevated) 50%, var(--border) 100%);
+  background: linear-gradient(90deg, var(--gray-100) 0%, var(--gray-50) 50%, var(--gray-100) 100%);
   background-size: 200% 100%;
   animation: shimmer 1.4s ease-in-out infinite;
   border-radius: var(--radius-sm);
@@ -267,3 +251,24 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
     transition-duration: 0.001ms !important;
   }
 }
+
+/* -------- The 5-color stripe from the report TOC.
+            Used as a decorative thin band under headers / hero. -------- */
+.accent-stripe {
+  height: 6px;
+  background: linear-gradient(90deg,
+    var(--c-teal)   0%,   var(--c-teal)   20%,
+    var(--c-yellow) 20%,  var(--c-yellow) 40%,
+    var(--c-pink)   40%,  var(--c-pink)   60%,
+    var(--c-green)  60%,  var(--c-green)  80%,
+    var(--c-purple) 80%,  var(--c-purple) 100%);
+}
+
+/* Category-tinted helpers — applied to filter chips, dots, etc.
+   Each category gets ONE specific color. */
+.cat-mens   { --cat: var(--c-pink); }
+.cat-womens { --cat: var(--c-purple); }
+.cat-jewel  { --cat: var(--c-yellow); }
+.cat-elec   { --cat: var(--c-teal); }
+.cat-all    { --cat: var(--brand); }
+.cat-default{ --cat: var(--gray-500); }

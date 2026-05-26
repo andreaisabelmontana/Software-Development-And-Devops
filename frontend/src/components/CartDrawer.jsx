@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../lib/cart.jsx';
 import { money } from '../lib/theme.js';
-import ProductGlyph from './ProductGlyph.jsx';
 
 export default function CartDrawer({ open, onClose }) {
   const { items, subtotal, shipping, tax, total, setQty, remove } = useCart();
@@ -24,7 +23,11 @@ export default function CartDrawer({ open, onClose }) {
           )}
           {items.map(line => (
             <div className="line" key={line.id}>
-              <div className="thumb"><ProductGlyph product={line} /></div>
+              <div className="thumb">
+                {line.image
+                  ? <img src={line.image} alt={line.name} />
+                  : <div className="skeleton" style={{ width: '100%', height: '100%' }} />}
+              </div>
               <div>
                 <div className="name">{line.name}</div>
                 <div className="meta">{line.category}</div>
@@ -38,7 +41,7 @@ export default function CartDrawer({ open, onClose }) {
                 <div className="price">{money(line.price * line.qty)}</div>
                 <button
                   className="btn btn-ghost"
-                  style={{ padding: '0.2em 0.5em', fontSize: '0.75rem' }}
+                  style={{ padding: '0.2em 0.5em', fontSize: '0.72rem' }}
                   onClick={() => remove(line.id)}
                 >
                   Remove

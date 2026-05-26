@@ -1,45 +1,29 @@
-// Seed product catalog — used when the live FastAPI backend isn't reachable
-// (e.g. when the site is served from GitHub Pages without an API URL set).
-// Shape matches Geethika2506/Devopsfinalproject's /products schema:
-//   { id, name, description, price, category, stock, image_url, created_at }
-
-const c = {
-  apparel:   'Apparel',
-  bags:      'Bags & Accessories',
-  home:      'Home',
-  stationery:'Stationery',
-  tech:      'Tech',
-  books:     'Books',
-  drinks:    'Drinks',
-};
+// Last-resort offline seed catalog — used only when neither the configured
+// backend (VITE_API_URL) nor fakestoreapi.com is reachable. Names mirror the
+// Fake Store API catalog the team's FastAPI seeds itself from, so the
+// fallback "looks like the same shop".
 
 export const SEED_PRODUCTS = [
-  { id: 1,  name: 'IE Heritage Sweatshirt',  category: c.apparel,   price: 65.00, stock: 42, description: 'Heavyweight cotton crewneck with embroidered IE crest. Made for the long library nights.' },
-  { id: 2,  name: 'Madrid Campus Hoodie',    category: c.apparel,   price: 78.00, stock: 31, description: 'Brushed-back fleece hoodie. Cream body with navy hood lining and red drawcord.' },
-  { id: 3,  name: 'BCSAI Class Tee',         category: c.apparel,   price: 28.00, stock: 120, description: 'Soft 200gsm tee printed with the BCSAI class graphic. Pre-shrunk and biowashed.' },
-  { id: 4,  name: 'Tower Polo',              category: c.apparel,   price: 55.00, stock: 24, description: 'Tailored piqué polo with the IE Tower silhouette stitched at the chest.' },
-
-  { id: 5,  name: 'Laptop Sleeve 14"',       category: c.bags,      price: 38.00, stock: 60, description: 'Felt-and-leather sleeve sized for the 14" Pro models. Magnetic snap closure.' },
-  { id: 6,  name: 'Campus Backpack',         category: c.bags,      price: 98.00, stock: 18, description: 'Water-resistant 22L backpack with padded laptop compartment and side bottle pocket.' },
-  { id: 7,  name: 'Cross-body Tote',         category: c.bags,      price: 32.00, stock: 75, description: '12oz canvas tote with reinforced bottom seam. Roomy enough for two textbooks and a laptop.' },
-
-  { id: 8,  name: 'Tower Ceramic Mug',       category: c.home,      price: 14.00, stock: 200, description: '12oz stoneware mug, microwave safe. Glazed in IE cream with a red interior.' },
-  { id: 9,  name: 'Steel Water Bottle',      category: c.home,      price: 22.00, stock: 88, description: 'Double-walled stainless steel, 600ml. Keeps cold 24h, hot 12h.' },
-  { id: 10, name: 'Linen Throw',             category: c.home,      price: 64.00, stock: 14, description: 'Stonewashed linen throw, 130×170cm. Subtle herringbone weave in navy.' },
-
-  { id: 11, name: 'Hardcover Field Notebook',category: c.stationery,price: 18.00, stock: 140, description: 'A5 dot-grid notebook, 192 pages of 100gsm Munken paper. Lays flat, smyth-sewn.' },
-  { id: 12, name: 'Refillable Rollerball',   category: c.stationery,price: 24.00, stock: 95, description: 'Machined brass rollerball pen with a knurled grip and a magnetic cap.' },
-  { id: 13, name: 'Sticker Pack — Volume 1', category: c.stationery,price:  6.00, stock: 320, description: 'Twelve die-cut vinyl stickers featuring the IE Tower, BCSAI mascots, and DevOps inside jokes.' },
-
-  { id: 14, name: 'Mechanical Keyboard 65%', category: c.tech,      price: 145.00, stock: 12, description: 'Hot-swappable 65% layout with PBT keycaps in cream and navy. USB-C, gasket-mounted.' },
-  { id: 15, name: 'USB-C Hub',               category: c.tech,      price: 49.00, stock: 38, description: 'Seven-port hub: 2× USB-A, 2× USB-C, HDMI 4K@60, SD, microSD.' },
-  { id: 16, name: 'Wireless Mouse',          category: c.tech,      price: 39.00, stock: 50, description: 'Low-latency wireless mouse, 800-2400 DPI, dual-mode Bluetooth + 2.4 GHz dongle.' },
-
-  { id: 17, name: 'DevOps Field Manual',     category: c.books,     price: 34.00, stock: 22, description: 'A 220-page paperback of patterns, anti-patterns, and post-mortems collected by the class.' },
-  { id: 18, name: 'FastAPI in Practice',     category: c.books,     price: 42.00, stock: 16, description: 'Worked examples for building production REST APIs in FastAPI — routers, auth, deployment.' },
-
-  { id: 19, name: 'Cold Brew Concentrate',   category: c.drinks,    price: 16.00, stock: 70, description: 'Single-origin Ethiopian cold brew, 500ml. Brewed slow, served fast — fuel for finals week.' },
-  { id: 20, name: 'Matcha Tin',              category: c.drinks,    price: 28.00, stock: 44, description: 'Ceremonial-grade matcha, 30g. Stone-ground from first-harvest Uji leaves.' },
+  { id: 1,  name: "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops", category: "Men's Clothing",   price: 109.95, stock: 42, description: 'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve.' },
+  { id: 2,  name: "Mens Casual Premium Slim Fit T-Shirts",                 category: "Men's Clothing",   price: 22.30,  stock: 31, description: 'Slim-fitting style, contrast raglan long sleeve, three-button henley placket.' },
+  { id: 3,  name: "Mens Cotton Jacket",                                    category: "Men's Clothing",   price: 55.99,  stock: 24, description: 'Great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions.' },
+  { id: 4,  name: "Mens Casual Slim Fit",                                  category: "Men's Clothing",   price: 15.99,  stock: 60, description: 'The color could be slightly different between on the screen and in practice.' },
+  { id: 5,  name: "John Hardy Women's Legends Naga Gold & Silver Dragon Bracelet", category: "Jewelry",  price: 695.00, stock: 4,  description: 'From our Legends Collection, the Naga was inspired by the mythical water dragon.' },
+  { id: 6,  name: "Solid Gold Petite Micropave",                            category: "Jewelry",         price: 168.00, stock: 8,  description: 'Satisfaction guaranteed. Return or exchange any order within 30 days.' },
+  { id: 7,  name: "White Gold Plated Princess Ring",                        category: "Jewelry",         price: 9.99,   stock: 75, description: 'Classic Created Wedding Engagement Solitaire Diamond Promise Ring.' },
+  { id: 8,  name: "Pierced Owl Rose Gold Plated Stainless Steel Double Flared Tunnel", category: "Jewelry", price: 10.99, stock: 95, description: 'Rose Gold Plated Double Flared Tunnel Plug Earrings.' },
+  { id: 9,  name: "WD 2TB Elements Portable External Hard Drive — USB 3.0", category: "Electronics",     price: 64.00,  stock: 22, description: 'USB 3.0 and USB 2.0 Compatibility · Fast data transfers · Improve PC Performance.' },
+  { id: 10, name: "SanDisk SSD PLUS 1TB Internal SSD — SATA III 6 Gb/s",    category: "Electronics",     price: 109.00, stock: 14, description: 'Boost laptop performance with the SanDisk SSD PLUS.' },
+  { id: 11, name: "Silicon Power 256GB SSD 3D NAND A55 SLC Cache",          category: "Electronics",     price: 109.00, stock: 18, description: '3D NAND flash for high transfer speeds and reliability.' },
+  { id: 12, name: "WD 4TB Gaming Drive Works with Playstation 4",          category: "Electronics",     price: 114.00, stock: 11, description: 'Expand your PS4 gaming experience.' },
+  { id: 13, name: "Acer 21.5 inches Full HD IPS Ultra-Thin Monitor",        category: "Electronics",     price: 599.00, stock: 5,  description: 'IPS panel with 178° viewing angle. Zero-Frame design.' },
+  { id: 14, name: "Samsung 49-Inch CHG90 144Hz Curved Gaming Monitor",      category: "Electronics",     price: 999.99, stock: 3,  description: 'Super ultrawide curved monitor with 32:9 aspect ratio.' },
+  { id: 15, name: "BIYLACLESEN Women's 3-in-1 Snowboard Jacket Winter Coats", category: "Women's Clothing", price: 56.99, stock: 18, description: '100% Polyester. Detachable lining. Two-way zipper.' },
+  { id: 16, name: "Lock and Love Women's Removable Hooded Faux Leather Moto Biker Jacket", category: "Women's Clothing", price: 29.95, stock: 23, description: '100% PU. Removable hood and faux-leather body.' },
+  { id: 17, name: "Rain Jacket Women Windbreaker Striped Climbing Raincoats", category: "Women's Clothing", price: 39.99, stock: 12, description: 'Lightweight perfect for travel or casual wear.' },
+  { id: 18, name: "MBJ Women's Solid Short Sleeve Boat Neck V",            category: "Women's Clothing", price: 9.85,   stock: 88, description: '95% Rayon, 5% Spandex. Lightweight fabric with great stretch.' },
+  { id: 19, name: "Opna Women's Short Sleeve Moisture Wicking Athletic Shirts", category: "Women's Clothing", price: 7.95, stock: 100, description: 'Polyester / Lycra blend, machine wash.' },
+  { id: 20, name: "DANVOUY Womens T Shirt Casual Cotton Short",            category: "Women's Clothing", price: 12.99, stock: 76, description: '95% Cotton, 5% Spandex. Casual short sleeves.' },
 ];
 
 let nextId = 1000;
