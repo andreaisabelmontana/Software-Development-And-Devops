@@ -53,10 +53,16 @@ export default function Product({ onOpenCart }) {
       </div>
       <div>
         <Link to="/" className="muted" style={{ fontSize: '0.85rem' }}>← Back to catalog</Link>
-        <h1 style={{ marginTop: '0.5rem' }}>{product.name}</h1>
-        <span style={{ color: cfg.color, fontWeight: 700, fontSize: '0.9rem' }}>
+        <span
+          className="product-tag"
+          style={{
+            color: cfg.color,
+            borderBottom: `4px solid ${cfg.color}`,
+          }}
+        >
           {cfg.icon} {product.category}
         </span>
+        <h1 style={{ marginTop: '0.75rem' }}>{product.name}</h1>
         <div className="rating-big">
           <StarRating rating={product.rating} size={18} />
         </div>

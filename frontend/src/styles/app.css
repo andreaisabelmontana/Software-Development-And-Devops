@@ -256,6 +256,9 @@
 .product-card {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
+  /* The thick top edge is the category-color stripe. Side and bottom edges
+     stay neutral so the rest of the card reads as clean white. */
+  border-top: 6px solid var(--cat, var(--brand));
   border-radius: var(--radius-md);
   overflow: hidden;
   display: flex;
@@ -265,7 +268,6 @@
 .product-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--shadow-md);
-  border-color: var(--brand-soft);
 }
 .product-card .thumb {
   aspect-ratio: 1;
@@ -303,9 +305,14 @@
   overflow: hidden;
 }
 .product-card .category {
-  font-size: 0.78rem;
+  font-family: var(--font-tag);
+  font-size: 1.15rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--cat, var(--fg-muted));
-  font-weight: 600;
+  font-weight: 400;        /* Bebas Neue is already heavy at 400 */
+  margin: 0.15rem 0 0.05rem;
 }
 .product-card .price {
   font-family: var(--font-sans);
@@ -361,6 +368,16 @@
   object-fit: contain;
 }
 .product-detail h1 { margin-bottom: 0.2em; }
+.product-tag {
+  display: inline-block;
+  font-family: var(--font-tag);
+  font-size: 1.6rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  margin-top: 1rem;
+}
 .product-detail .price-big {
   font-family: var(--font-sans);
   font-size: 2.5rem;
