@@ -1,44 +1,70 @@
 /* ============================================================
    The Shop — Design System
-   IE School of Science & Technology — BCSAI Software Dev / DevOps
+   Palette sampled directly from the team's original UI screenshot
+   (img-001.jpg embedded in docs/SDG_Report_Slides.pdf).
+
+   Sampled gradient swatches: #5E64D0 → #6157BB → #654BA9
+   Page background:           #F3F3F3
+   Cards:                     #FFFFFF
    ============================================================ */
 
 :root {
-  /* IE-inspired palette: deep navy (institutional), warm cream
-     (paper / report background), and a vivid IE red as the accent. */
-  --ie-navy:        #0b1f3a;
-  --ie-navy-soft:   #15315a;
-  --ie-navy-line:   #1f3a66;
-  --ie-red:         #e0223c;
-  --ie-red-deep:    #b51a30;
-  --ie-cream:       #f6efe1;
-  --ie-cream-soft:  #fbf6ea;
-  --ie-ink:         #131a26;
-  --ie-ink-soft:    #4a5364;
-  --ie-line:        #e3dccb;
-  --ie-success:     #1f7a3d;
-  --ie-warn:        #b3651b;
+  /* Brand — indigo / violet ramp pulled from the screenshot. */
+  --brand-indigo:        #5B5FE6;   /* primary fill (buttons, prices, active) */
+  --brand-indigo-strong: #4B4FCC;   /* hover                                  */
+  --brand-indigo-soft:   #8B91F0;   /* light variants                         */
+  --brand-violet:        #7C3AED;   /* gradient mid                           */
+  --brand-purple:        #9333EA;   /* gradient end                           */
+  --brand-purple-deep:   #6D28D9;   /* deep purple accent                     */
+
+  /* Neutrals — cool gray ramp matching the original page chrome. */
+  --gray-50:   #F9FAFB;
+  --gray-100:  #F3F4F6;
+  --gray-200:  #E5E7EB;
+  --gray-300:  #D1D5DB;
+  --gray-400:  #9CA3AF;
+  --gray-500:  #6B7280;
+  --gray-600:  #4B5563;
+  --gray-700:  #374151;
+  --gray-800:  #1F2937;
+  --gray-900:  #111827;
+
+  /* Status (kept; original screenshot didn't show these so common values used). */
+  --success:   #10B981;
+  --warn:      #F59E0B;
+  --star:      #FBBF24;
+  --danger:    #EF4444;
 
   /* Semantic tokens */
-  --bg:            var(--ie-cream-soft);
-  --bg-elevated:   #ffffff;
-  --bg-inverse:    var(--ie-navy);
-  --fg:            var(--ie-ink);
-  --fg-muted:      var(--ie-ink-soft);
-  --fg-inverse:    var(--ie-cream);
-  --border:        var(--ie-line);
-  --accent:        var(--ie-red);
-  --accent-strong: var(--ie-red-deep);
-  --shadow-sm:     0 1px 2px rgba(11, 31, 58, 0.06), 0 1px 1px rgba(11, 31, 58, 0.04);
-  --shadow-md:     0 8px 24px rgba(11, 31, 58, 0.10), 0 2px 6px rgba(11, 31, 58, 0.05);
-  --shadow-lg:     0 24px 60px rgba(11, 31, 58, 0.18);
+  --bg:            var(--gray-100);
+  --bg-elevated:   #FFFFFF;
+  --bg-inverse:    var(--gray-900);
+  --fg:            var(--gray-900);
+  --fg-muted:      var(--gray-500);
+  --fg-inverse:    #FFFFFF;
+  --border:        var(--gray-200);
+  --border-strong: var(--gray-300);
 
-  --radius-sm: 6px;
-  --radius-md: 12px;
-  --radius-lg: 20px;
+  --accent:        var(--brand-indigo);
+  --accent-strong: var(--brand-indigo-strong);
 
-  --font-display: 'Georgia', 'Times New Roman', serif;
-  --font-sans:    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  /* The hero / header gradient — taken from the original site. */
+  --grad-hero: linear-gradient(95deg, var(--brand-indigo) 0%, var(--brand-violet) 55%, var(--brand-purple) 100%);
+
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --shadow-md: 0 8px 24px rgba(17, 24, 39, 0.08), 0 2px 6px rgba(17, 24, 39, 0.04);
+  --shadow-lg: 0 24px 60px rgba(17, 24, 39, 0.15);
+  --shadow-brand: 0 12px 30px rgba(91, 95, 230, 0.35);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Sans-only stack — original UI uses no serif anywhere. */
+  --font-sans:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
   --container: 1180px;
 
@@ -46,13 +72,14 @@
 }
 
 [data-theme='dark'] {
-  --bg:            #0a1626;
-  --bg-elevated:   #102036;
-  --bg-inverse:    #f6efe1;
-  --fg:            #f4ecd8;
-  --fg-muted:      #a7b1c0;
-  --fg-inverse:    var(--ie-navy);
-  --border:        #1f3a66;
+  --bg:            #0F1024;
+  --bg-elevated:   #181A36;
+  --bg-inverse:    #FFFFFF;
+  --fg:            #F3F4F6;
+  --fg-muted:      #9CA3AF;
+  --fg-inverse:    var(--gray-900);
+  --border:        #2A2D55;
+  --border-strong: #3B3E70;
   --shadow-sm:     0 1px 2px rgba(0,0,0,0.4);
   --shadow-md:     0 8px 24px rgba(0,0,0,0.45);
   --shadow-lg:     0 24px 60px rgba(0,0,0,0.55);
@@ -77,28 +104,24 @@ a {
   color: inherit;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color 120ms ease;
+  transition: border-color 120ms ease, color 120ms ease;
 }
-a:hover { border-bottom-color: currentColor; }
+a:hover { color: var(--brand-indigo); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
+  letter-spacing: -0.02em;
   margin: 0 0 0.5em 0;
   color: var(--fg);
 }
-h1 { font-size: clamp(2rem, 4vw + 1rem, 3.5rem); line-height: 1.08; }
+h1 { font-size: clamp(2rem, 4vw + 1rem, 3.5rem); line-height: 1.06; }
 h2 { font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem); line-height: 1.15; }
-h3 { font-size: 1.25rem; }
+h3 { font-size: 1.15rem; font-weight: 600; }
 
 p { margin: 0 0 1em 0; }
 
-button {
-  font-family: inherit;
-  font-size: 0.95rem;
-  cursor: pointer;
-}
+button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 
 /* -------- Buttons -------- */
 .btn {
@@ -106,45 +129,54 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.5em;
-  padding: 0.7em 1.4em;
+  padding: 0.65em 1.3em;
   border-radius: var(--radius-sm);
   border: 1px solid transparent;
   font-weight: 600;
-  letter-spacing: 0.01em;
-  transition: transform 80ms ease, background 120ms ease, box-shadow 120ms ease;
+  letter-spacing: 0;
+  transition: transform 80ms ease, background 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
   white-space: nowrap;
+  font-size: 0.95rem;
 }
 .btn:active { transform: translateY(1px); }
 
 .btn-primary {
-  background: var(--ie-red);
+  background: var(--brand-indigo);
   color: #fff;
-  border-color: var(--ie-red);
+  border-color: var(--brand-indigo);
   box-shadow: var(--shadow-sm);
 }
-.btn-primary:hover { background: var(--ie-red-deep); border-color: var(--ie-red-deep); }
-.btn-primary:disabled { background: #c9a0a8; border-color: #c9a0a8; cursor: not-allowed; }
+.btn-primary:hover { background: var(--brand-indigo-strong); border-color: var(--brand-indigo-strong); color: #fff; }
+.btn-primary:disabled { background: var(--brand-indigo-soft); border-color: var(--brand-indigo-soft); cursor: not-allowed; }
 
 .btn-secondary {
   background: var(--bg-elevated);
   color: var(--fg);
   border-color: var(--border);
 }
-.btn-secondary:hover { border-color: var(--ie-navy); }
+.btn-secondary:hover { border-color: var(--brand-indigo); color: var(--brand-indigo); }
 
 .btn-ghost {
   background: transparent;
   color: var(--fg);
   border-color: transparent;
 }
-.btn-ghost:hover { background: rgba(11,31,58,0.06); }
+.btn-ghost:hover { background: rgba(91,95,230,0.08); color: var(--brand-indigo); }
 
 .btn-dark {
-  background: var(--ie-navy);
-  color: var(--ie-cream);
-  border-color: var(--ie-navy);
+  background: var(--gray-900);
+  color: #fff;
+  border-color: var(--gray-900);
 }
-.btn-dark:hover { background: var(--ie-navy-soft); border-color: var(--ie-navy-soft); }
+.btn-dark:hover { background: var(--gray-800); border-color: var(--gray-800); color: #fff; }
+
+.btn-gradient {
+  background: var(--grad-hero);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: var(--shadow-brand);
+}
+.btn-gradient:hover { filter: brightness(1.05); color: #fff; }
 
 /* -------- Layout primitives -------- */
 .container {
@@ -160,17 +192,17 @@ button {
 
 .badge {
   display: inline-block;
-  padding: 0.25em 0.7em;
-  border-radius: 999px;
-  font-size: 0.75rem;
+  padding: 0.3em 0.85em;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: var(--ie-navy);
-  color: var(--ie-cream);
+  background: var(--brand-indigo);
+  color: #fff;
 }
-.badge-accent { background: var(--ie-red); color: #fff; }
-.badge-soft   { background: var(--ie-cream); color: var(--ie-navy); border: 1px solid var(--ie-line); }
+.badge-accent { background: var(--grad-hero); color: #fff; }
+.badge-soft   { background: var(--gray-100); color: var(--brand-indigo); border: 1px solid var(--border); }
 
 /* -------- Forms -------- */
 .field {
@@ -179,18 +211,18 @@ button {
   gap: 0.35rem;
 }
 .field label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
   color: var(--fg-muted);
+  letter-spacing: 0;
+  text-transform: none;
 }
 .field input,
 .field select,
 .field textarea {
   font-family: inherit;
-  font-size: 1rem;
-  padding: 0.7em 0.9em;
+  font-size: 0.98rem;
+  padding: 0.7em 0.95em;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--bg-elevated);
@@ -201,8 +233,8 @@ button {
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--ie-navy);
-  box-shadow: 0 0 0 3px rgba(11,31,58,0.12);
+  border-color: var(--brand-indigo);
+  box-shadow: 0 0 0 3px rgba(91,95,230,0.18);
 }
 
 /* -------- Card -------- */
@@ -216,7 +248,7 @@ button {
 /* -------- Utilities -------- */
 .muted { color: var(--fg-muted); }
 .center { text-align: center; }
-.mono { font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; }
+.mono { font-family: var(--font-mono); }
 
 .skeleton {
   background: linear-gradient(90deg, var(--border) 0%, var(--bg-elevated) 50%, var(--border) 100%);
@@ -229,7 +261,6 @@ button {
   100% { background-position: -200% 0; }
 }
 
-/* -------- Reduced motion -------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

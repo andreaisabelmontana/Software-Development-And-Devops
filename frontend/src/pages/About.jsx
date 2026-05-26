@@ -9,7 +9,7 @@ export default function About() {
         fontWeight: 700,
         textTransform: 'uppercase',
         letterSpacing: '0.18em',
-        color: 'var(--ie-red)',
+        color: 'var(--brand-indigo)',
         marginBottom: '0.5rem',
       }}>About the project</span>
       <h1>The Shop, in context.</h1>
@@ -37,9 +37,11 @@ export default function About() {
       <p>Two improvements over the original frontend:</p>
       <ol>
         <li>
-          <strong>A real design system.</strong> IE-inspired palette (deep navy, warm cream,
-          IE red), display typography, responsive product grid, sticky cart drawer, dark mode,
-          procedural product imagery so the site works offline.
+          <strong>A real design system.</strong> Palette sampled pixel-for-pixel from the team's
+          original screenshot — indigo <code>#5B5FE6</code> → violet <code>#7C3AED</code> →
+          purple <code>#9333EA</code> gradient header, cool-gray <code>#F3F4F6</code> page
+          background, white cards — backed by responsive product grid, sticky cart drawer,
+          dark mode, and procedural product imagery so the site works offline.
         </li>
         <li>
           <strong>A mock payment flow.</strong> The PDF's "future improvements" list called

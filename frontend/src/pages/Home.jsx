@@ -41,7 +41,7 @@ export default function Home({ onOpenCart }) {
             </p>
             <div className="hero-actions">
               <a href="#catalog" className="btn btn-primary">Shop the catalog</a>
-              <Link to="/about" className="btn btn-secondary" style={{ background: 'transparent', color: 'var(--ie-cream)', borderColor: 'rgba(244,236,216,0.4)' }}>
+              <Link to="/about" className="btn btn-secondary">
                 About the project
               </Link>
             </div>

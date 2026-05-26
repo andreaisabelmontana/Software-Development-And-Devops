@@ -1,8 +1,8 @@
 // Deterministic procedural "product image" — no external assets needed,
 // so the live site works offline / on GitHub Pages with zero CDN dependency.
-// Each product gets a category-themed glyph in IE colors.
+// Each product gets a category-themed glyph in brand colors.
 
-const PALETTE = ['#0b1f3a', '#15315a', '#e0223c', '#b51a30'];
+const PALETTE = ['#5B5FE6', '#7C3AED', '#9333EA', '#6D28D9'];
 
 function hash(s) {
   let h = 0;
@@ -25,7 +25,7 @@ const GLYPHS = {
 function Glyph({ s, d }) {
   return (
     <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-      <rect width="96" height="96" rx="14" fill={color(s, 0)} opacity="0.08" />
+      <rect width="96" height="96" rx="14" fill={color(s, 0)} opacity="0.10" />
       <path d={d} fill="none" stroke={color(s, 1)} strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
       <circle cx="78" cy="20" r="4" fill={color(s, 2)} />
     </svg>

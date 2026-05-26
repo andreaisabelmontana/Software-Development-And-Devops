@@ -218,7 +218,7 @@ export default function Checkout() {
           </div>
 
           {error && (
-            <p style={{ color: 'var(--ie-red)', marginTop: '1rem' }}>{error}</p>
+            <p style={{ color: 'var(--danger)', marginTop: '1rem' }}>{error}</p>
           )}
         </div>
 

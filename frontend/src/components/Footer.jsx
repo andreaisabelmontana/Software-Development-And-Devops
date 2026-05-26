@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="container inner">
         <div>
           <h4>The Shop</h4>
-          <p style={{ color: 'rgba(244,236,216,0.78)', maxWidth: '38ch', margin: 0 }}>
+          <p style={{ color: 'rgba(255,255,255,0.7)', maxWidth: '38ch', margin: 0 }}>
             A cloud-native marketplace built by the BCSAI Software Development &amp; DevOps team
             at IE School of Science &amp; Technology, Madrid.
           </p>

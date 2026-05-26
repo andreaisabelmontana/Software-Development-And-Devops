@@ -39,8 +39,9 @@ software-development-and-devops/
 
 1. **A real design system.** The reference frontend is utilitarian — a working
    React app, but stylistically flat. This version ships with:
-   - IE-inspired palette (deep navy `#0b1f3a`, warm cream `#f6efe1`, IE red `#e0223c`).
-   - Display typography (Georgia / system serif) for headings, system sans for body.
+   - **Palette sampled pixel-for-pixel from the team's original UI** (the screenshot
+     embedded in the SDG report). Indigo `#5B5FE6` → violet `#7C3AED` → purple `#9333EA`
+     gradient header, cool-gray `#F3F4F6` page background, white cards.
    - Sticky cart drawer with quantity steppers, free-shipping threshold, tax preview.
    - Responsive product grid, category chips, search.
    - Dark mode with full token coverage.
