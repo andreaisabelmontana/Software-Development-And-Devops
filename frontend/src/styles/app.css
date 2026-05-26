@@ -7,7 +7,7 @@
   position: sticky;
   top: 0;
   z-index: 30;
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 .site-header .inner {
@@ -34,7 +34,7 @@
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  background: #fff;
+  background: var(--bg);
   border: 2.5px solid var(--brand);
   display: grid;
   place-items: center;
@@ -89,18 +89,22 @@
 }
 
 .theme-toggle {
-  background: #fff;
-  border: 1px solid var(--border-strong);
+  background: var(--bg);
+  border: 1.5px solid var(--border-strong);
   border-radius: var(--radius-pill);
-  width: 36px; height: 36px;
+  width: 38px; height: 38px;
   display: grid; place-items: center;
   color: var(--fg);
+  cursor: pointer;
+  transition: border-color 120ms ease, color 120ms ease, transform 80ms ease;
 }
 .theme-toggle:hover { border-color: var(--brand); color: var(--brand); }
+.theme-toggle:active { transform: scale(0.94); }
+.theme-toggle svg { width: 18px; height: 18px; }
 
 /* -------- Hero (clean white, accent stripe under it) -------- */
 .hero {
-  background: #fff;
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 .hero .inner {
@@ -155,7 +159,7 @@
 
 /* -------- Filter bar — boxed like the OG -------- */
 .filter-bar {
-  background: #fff;
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
@@ -178,7 +182,7 @@
   padding: 0.5em 1.05em;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--border-strong);
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--fg);
   font-size: 0.88rem;
   font-weight: 600;
@@ -218,11 +222,11 @@
   padding: 0.5em 2em 0.5em 0.9em;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--border-strong);
-  background: #fff;
+  background-color: var(--bg-elevated);
   color: var(--fg);
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='%23616161' stroke-width='1.6' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='none' stroke='currentColor' stroke-width='1.6' d='M1 1l4 4 4-4'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.85em center;
 }
@@ -237,7 +241,7 @@
   padding: 0.5em 0.95em;
   border-radius: var(--radius-pill);
   border: 1.5px solid var(--border-strong);
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--fg);
   min-width: 220px;
 }
@@ -250,7 +254,7 @@
   gap: 1.5rem;
 }
 .product-card {
-  background: #fff;
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -265,7 +269,7 @@
 }
 .product-card .thumb {
   aspect-ratio: 1;
-  background: #fff;
+  background: var(--product-bg);
   display: grid;
   place-items: center;
   position: relative;
@@ -284,7 +288,7 @@
   flex-direction: column;
   gap: 0.45rem;
   flex: 1;
-  border-top: 1px solid var(--gray-100);
+  border-top: 1px solid var(--border);
 }
 .product-card h3 {
   font-family: var(--font-sans);
@@ -344,7 +348,7 @@
 }
 .product-detail .visual {
   aspect-ratio: 1;
-  background: #fff;
+  background: var(--product-bg);
   border-radius: var(--radius-md);
   display: grid;
   place-items: center;
@@ -382,7 +386,7 @@
   overflow: hidden;
 }
 .product-detail .qty button {
-  background: #fff; border: none; padding: 0.5em 0.95em; font-size: 1.1rem; color: var(--fg);
+  background: var(--bg-elevated); border: none; padding: 0.5em 0.95em; font-size: 1.1rem; color: var(--fg);
 }
 .product-detail .qty button:hover { background: var(--gray-50); color: var(--brand); }
 .product-detail .qty span {
@@ -405,7 +409,7 @@
 .drawer {
   position: fixed; top: 0; right: 0; bottom: 0;
   width: min(420px, 100%);
-  background: #fff;
+  background: var(--bg);
   border-left: 1px solid var(--border);
   box-shadow: var(--shadow-lg);
   transform: translateX(100%);
@@ -431,7 +435,7 @@
 .drawer .line .thumb {
   width: 56px; height: 56px;
   border-radius: 10px;
-  background: #fff; border: 1px solid var(--border);
+  background: var(--product-bg); border: 1px solid var(--border);
   display: grid; place-items: center; padding: 4px;
   overflow: hidden;
 }
@@ -550,7 +554,7 @@
   position: fixed; bottom: 16px; left: 16px;
   font-size: 0.7rem;
   text-transform: uppercase; letter-spacing: 0.10em;
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--fg-muted);
   padding: 0.4em 0.85em;
   border-radius: var(--radius-pill);

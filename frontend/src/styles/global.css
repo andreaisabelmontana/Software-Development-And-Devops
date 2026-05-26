@@ -80,16 +80,22 @@
   color-scheme: light;
 }
 
-/* The OG site doesn't have a dark mode. Honor prefers-color-scheme but
-   keep the rest of the design unchanged so we don't drift from the deck. */
+/* Dark mode — same brand green, same 5-color accents, but cool charcoal
+   surfaces so the colored chips still pop. Product thumbnails stay light
+   regardless of theme because FSA photos are shot on white. */
+:root { --product-bg: #FFFFFF; }
 [data-theme='dark'] {
-  --bg:            #121212;
-  --bg-elevated:   #1E1E1E;
-  --bg-soft:       #1A1A1A;
-  --fg:            #F5F5F5;
-  --fg-muted:      #9E9E9E;
-  --border:        #2A2A2A;
-  --border-strong: #3A3A3A;
+  --bg:            #0F1115;
+  --bg-elevated:   #181B22;
+  --bg-soft:       #14171D;
+  --fg:            #ECEFF4;
+  --fg-muted:      #A0A6B0;
+  --border:        #262A33;
+  --border-strong: #353A45;
+  --product-bg:    #F2F4F7;   /* still light — product photos demand it */
+  --shadow-sm:     0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md:     0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg:     0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
 * { box-sizing: border-box; }
@@ -156,7 +162,7 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 .btn-primary:disabled { background: var(--brand-soft); border-color: var(--brand-soft); color: var(--gray-600); cursor: not-allowed; }
 
 .btn-secondary {
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--fg);
   border-color: var(--border-strong);
 }
@@ -209,7 +215,7 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
   padding: 0.7em 0.95em;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
-  background: #fff;
+  background: var(--bg-elevated);
   color: var(--fg);
   transition: border-color 120ms ease, box-shadow 120ms ease;
 }
@@ -223,7 +229,7 @@ button { font-family: inherit; font-size: 0.95rem; cursor: pointer; }
 
 /* -------- Card -------- */
 .card {
-  background: #fff;
+  background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
