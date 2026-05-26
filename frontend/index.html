@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1f3a" />
+    <meta name="description" content="The Shop — a mini online marketplace built for the IE BCSAI Software Development & DevOps course." />
+    <title>The Shop · IE BCSAI</title>
+    <script>
+      // Companion to public/404.html — restore the original deep-link URL
+      // before React Router boots. Required for GitHub Pages, which serves
+      // 404.html for any non-root path.
+      (function () {
+        var q = window.location.search;
+        if (q && q.indexOf('?p=/') !== -1) {
+          var parts = q.replace(/^\?/, '').split('&');
+          var path = '', rest = [];
+          parts.forEach(function (kv) {
+            if (kv.indexOf('p=') === 0)      path = decodeURIComponent(kv.slice(2));
+            else if (kv.indexOf('q=') === 0) rest.push(decodeURIComponent(kv.slice(2)));
+            else                              rest.push(kv);
+          });
+          window.history.replaceState(
+            null, '',
+            window.location.pathname.replace(/\/$/, '') + path.replace(/~and~/g, '&') +
+            (rest.length ? '?' + rest.join('&').replace(/~and~/g, '&') : '') +
+            window.location.hash
+          );
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

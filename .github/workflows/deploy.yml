@@ -1,0 +1,71 @@
+name: Build & deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Pages auth — token + concurrency rules from the official docs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+
+      - name: Build
+        env:
+          # Wire this secret up in the repo settings if/when the FastAPI
+          # backend is deployed. If unset, the site automatically runs in
+          # seeded demo mode.
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+        run: npm run build
+
+      - name: Copy 404.html alongside index.html
+        # Vite already copies public/404.html, but we belt-and-brace it here
+        # so a deep link like /software-development-and-devops/product/3
+        # is served by index.html via the SPA shim.
+        run: |
+          if [ -f dist/index.html ] && [ ! -f dist/404.html ]; then
+            cp dist/index.html dist/404.html
+          fi
+
+      - name: Add SDG Report into the deployed site
+        # So `<a href="./docs/SDG_Report_Slides.pdf">` resolves on the live URL.
+        run: |
+          mkdir -p dist/docs
+          cp ../docs/SDG_Report_Slides.pdf dist/docs/SDG_Report_Slides.pdf
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: frontend/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
