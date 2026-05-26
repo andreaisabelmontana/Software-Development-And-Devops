@@ -9,8 +9,18 @@ contract as the reference backend in
 [`Geethika2506/Devopsfinalproject`](https://github.com/Geethika2506/Devopsfinalproject),
 with two visible improvements over the original.
 
-> **Live demo:** https://andreaisabelmontana.github.io/software-development-and-devops/
+> **Live demo:** https://andreaisabelmontana.github.io/Software-Development-And-Devops/
 > *(Deploys automatically from `main` via GitHub Actions → GitHub Pages.)*
+
+> [!IMPORTANT]
+> **One-time setup before the live site works.** GitHub Pages must be enabled
+> on the repo, otherwise the `deploy` job in CI will fail with
+> *"Get Pages site failed"* and the URL above 404s.
+>
+> 1. Open **Settings → Pages**
+>    ([direct link](https://github.com/andreaisabelmontana/Software-Development-And-Devops/settings/pages)).
+> 2. Under **Build and deployment → Source**, pick **GitHub Actions** *(not "Deploy from a branch")*.
+> 3. Re-run the latest workflow from the Actions tab.
 
 ---
 
