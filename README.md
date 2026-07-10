@@ -118,4 +118,4 @@ Repo-side prerequisite: in **Settings → Pages**, set *Source* to **GitHub Acti
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Built as a class project at IE School of Science & Technology.
+MIT — see [LICENSE](LICENSE).
